@@ -104,8 +104,8 @@ function Runner(appJsConfig, cb) {
   var envConfig = readEnvConfig();
 
   var swaggerConfigDefaults = _.extend({}, CONFIG_DEFAULTS, {
-    controllersDirs: [ this.resolveAppPath(appPaths.controllersDir) ],
-    mockControllersDirs: [ this.resolveAppPath(appPaths.mockControllersDir) ],
+    controllersDirs: [ this.resolveAppPath(appJsConfig.controllersDir || appPaths.controllersDir) ],
+    mockControllersDirs: [ this.resolveAppPath(appJsConfig.mockControllersDir || appPaths.mockControllersDir) ],
     configDir: configDir
   });
 
@@ -117,7 +117,7 @@ function Runner(appJsConfig, cb) {
   this.config = fileConfig;
   debug('resolved config: %j', this.config);
 
-  var swaggerFile = this.resolveAppPath(appPaths.swaggerFile);
+  var swaggerFile = this.resolveAppPath(appJsConfig.swaggerFile || appPaths.swaggerFile);
   try {
     this.swagger = yaml.safeLoad(fs.readFileSync(swaggerFile, 'utf8'));
   } catch (err) {
