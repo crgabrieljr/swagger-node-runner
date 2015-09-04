@@ -17,7 +17,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/theganyo/swagger-node-runner.git"
+    "url": "https://github.com/crgabrieljr/swagger-node-runner.git"
   },
   "dependencies": {
     "cors": "^2.5.3",
